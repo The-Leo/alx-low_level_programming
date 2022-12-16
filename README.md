@@ -1,1 +1,1 @@
-Low level programming project
+Low-level programming and algorithm projects for ALX School. 
