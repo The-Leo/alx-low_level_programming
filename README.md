@@ -1,1 +1,1 @@
-Low-level programming and algorithm projects for ALX School. 
+This repository contains programs written for the low-level programming and algorithm track at ALX School
