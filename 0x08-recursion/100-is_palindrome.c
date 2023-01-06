@@ -1,95 +1,47 @@
 #include "main.h"
 
-int strlen_no_wilds(char *str);
-void iterate_wild(char **wildstr);
-char *postfix_match(char *str, char *postfix);
-int wildcmp(char *s1, char *s2);
-
 /**
- * strlen_no_wilds - Returns the length of a string,
- *                   ignoring wildcard characters.
- * @str: The string to be measured.
- *
- * Return: The length.
+ * _strlen_recursion - returns the length of a string.
+ * @s: pointer to s.
+ * Return: length of the string.
  */
-int strlen_no_wilds(char *str)
+int _strlen_recursion(char *s)
 {
-	int len = 0, index = 0;
+	int length = 0;
 
-	if (*(str + index))
+	if (s[length] == '\0')
 	{
-		if (*str != '*')
-			len++;
-
-		index++;
-		len += strlen_no_wilds(str + index);
+		return (length);
 	}
-
-	return (len);
+	return (1 + _strlen_recursion(s + 1));
 }
 
 /**
- * iterate_wild - Iterates through a string located at a wildcard
- *                until it points to a non-wildcard character.
- * @wildstr: The string to be iterated through.
+ * palindrome - palindrome calculator.
+ * @word: string to check.
+ * @beginning: beginning of the word.
+ * @end: end of the word.
+ * Return: is palindrome?.
  */
-void iterate_wild(char **wildstr)
+int palindrome(char word[], int beginning, int end)
 {
-	if (**wildstr == '*')
-	{
-		(*wildstr)++;
-		iterate_wild(wildstr);
-	}
-}
-
-/**
- * postfix_match - Checks if a string str matches the postfix of
- *                 another string potentially containing wildcards.
- * @str: The string to be matched.
- * @postfix: The postfix.
- *
- * Return: If str and postfix are identical - a pointer to the null byte
- *                                            located at the end of postfix.
- *         Otherwise - a pointer to the first unmatched character in postfix.
- */
-char *postfix_match(char *str, char *postfix)
-{
-	int str_len = strlen_no_wilds(str) - 1;
-	int postfix_len = strlen_no_wilds(postfix) - 1;
-
-	if (*postfix == '*')
-		iterate_wild(&postfix);
-
-	if (*(str + str_len - postfix_len) == *postfix && *postfix != '\0')
-	{
-		postfix++;
-		return (postfix_match(str, postfix));
-	}
-
-	return (postfix);
-}
-
-/**
- * wildcmp - Compares two strings, considering wildcard characters.
- * @s1: The first string to be compared.
- * @s2: The second string to be compared - may contain wildcards.
- *
- * Return: If the strings can be considered identical - 1.
- *         Otherwise - 0.
- */
-int wildcmp(char *s1, char *s2)
-{
-	if (*s2 == '*')
-	{
-		iterate_wild(&s2);
-		s2 = postfix_match(s1, s2);
-	}
-
-	if (*s2 == '\0')
+	if (beginning == end)
 		return (1);
-
-	if (*s1 != *s2)
+	if (word[beginning] != word[end])
 		return (0);
+	if (beginning < end + 1)
+		return (palindrome(word, beginning + 1, end - 1));
+	return (1);
+}
 
-	return (wildcmp(++s1, ++s2));
+/**
+ * is_palindrome - returns 1 if a string is a palindrome and 0 if not.
+ * @s: ponter to the string.
+ * Return: 1 if true, 0 if false.
+ */
+int is_palindrome(char *s)
+{
+	int l = _strlen_recursion(s) - 1;
+
+	return (palindrome(s, 0, l));
 }
