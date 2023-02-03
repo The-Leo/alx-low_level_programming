@@ -1,0 +1,3 @@
+# BIT MANIPULATION
+In this project, I learned how to manipulate bits and use the bitwise operators >>, <<, &, |, and ^ in C.
+Bit manipulation in C refers to the process of modifying individual bits within a memory location stored as a variable in the C programming language. Bit manipulation is performed by using bitwise operations such as bitwise AND, OR, XOR, and shift operations. This technique is used to manipulate flags, control specific bits within a memory location, and to set or clear individual bits. Bit manipulation can also be used to optimize code, particularly in systems programming or low-level programming.
