@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * main - Prints "Holberton" followed by a new line.
+ * main - Entry point
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	_putchar('_');
@@ -15,7 +16,7 @@ int main(void)
 	_putchar('h');
 	_putchar('a');
 	_putchar('r');
-	_putchar('\n);
+	_putchar('\n');
 
-	return(0);
+	return (0);
 }
