@@ -1,7 +1,7 @@
 # C- HELLO WORLD
 This project was the very beginning of our C low-level programming course. It was to introduce us to the basic structure of a C program and how to compile using GCC. We also learnt concepts such us creating our own putchar function to output code to the standard output. 
 
-##Objectives of this Project
+## Objectives of this Project
 **By the end of this project, this is the knowledge I gathered.**
 * Why C programming is awesome
 * Who invented C
@@ -17,7 +17,7 @@ This project was the very beginning of our C low-level programming course. It wa
 * How to find the right header to include in your source code when using a standard library function
 * How does the main function influence the return value of the program
 
-## [Task 1](0x00-hello_world/0-preprocessor) 
+## [Task 1](https://github.com/The-Leo/alx-low_level_programming/blob/master/0x00-hello_world/0-preprocessor) 
 Write a script that runs a C file through the preprocessor and save the result into another file.
 
 The C file name will be saved in the variable $CFILE
